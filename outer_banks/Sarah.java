@@ -1,41 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+package Outer_Banks;
+import java.util.Scanner;
+
+/**
+ *
+ * @author STEVAOSEVERORODRIGUE
  */
-package com.mycompany.outer_banks;
 
-import java.util.Random; 
-
-class Sarah extends Personagens {
+ public class Sarah extends Personagens {
     public Sarah() {
-        super("Sarah", 80, 10, 20, 10);
-    }
-
-    public String usarPersuasao(Personagens oponente) {
-        boolean sucesso = new Random().nextBoolean();
-        if (sucesso) {
-            oponente.vida -= 0;
-            return "Sarah usa seu carisma para confundir o oponente, que hesita em atacar!";
-        } else {
-            return "Sarah tentou persuadir, mas falhou.";
-        }
+        super("Sarah", 90, 15, 20, 18);
     }
 
     public String habilidadeMagica(Personagens oponente) {
-        int danoMagico = new Random().nextInt(11) + 15; // Random entre 15 e 25
-        oponente.vida -= danoMagico;
-        return "Sarah usa sua habilidade mágica, causando " + danoMagico + " de dano!";
+        Dados dados = new Dados();
+        int dano = this.forca + dados.rolarDados(new Scanner(System.in), 1, 8) + 10; // Random entre 10 e 18
+        oponente.vida -= dano;
+        return "Sarah usa sua magia, causando " + dano + " de dano!";
     }
 
     public String escaparRapidamente() {
-        boolean sucesso = new Random().nextBoolean();
-        if (sucesso) {
-            return "Sarah conseguiu escapar da batalha!";
-        } else {
-            return "Sarah tentou escapar, mas não conseguiu.";
-        }
+        Dados dados = new Dados();
+        int esquiva = dados.rolarDados(new Scanner(System.in), 1, 6) + 10; // Random entre 10 e 15
+        return "Sarah escapa rapidamente, esquivando-se de " + esquiva + " pontos de dano!";
+    }
+
+    public String usarPersuasao(Personagens oponente) {
+        Dados dados = new Dados();
+        int sucesso = dados.rolarDados(new Scanner(System.in), 1, 6) + 5; // Random entre 5 e 10
+        return "Sarah usa persuasão para desestabilizar " + oponente.nome + ", aumentando sua vulnerabilidade em " + sucesso + "!";
     }
 }
-
-        
 
