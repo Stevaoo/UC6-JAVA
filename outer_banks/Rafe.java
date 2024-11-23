@@ -1,35 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+package Outer_Banks;
+
+/**
+ *
+ * @author STEVAOSEVERORODRIGUE
  */
-package com.mycompany.outer_banks;
 
-import java.util.Random;
 
-class Rafe extends Personagens {
+import java.util.Scanner;
+
+public class Rafe extends Personagens {
     public Rafe() {
-        super("Rafe", 110, 25, 5, 15);
+        super("Rafe", 110, 25, 12, 10);
     }
 
     public String ataqueAgressivo(Personagens oponente) {
-        int dano = this.forca + new Random().nextInt(11) + 15; // Random entre 15 e 25
+        Dados dados = new Dados();
+        int dano = this.forca + dados.rolarDados(new Scanner(System.in), 1, 8) + 12; // Random entre 12 e 20
         oponente.vida -= dano;
-        return "Rafe realiza um ataque agressivo, causando " + dano + " de dano, mas perde um pouco de defesa!";
-    }
-
-    public String intimidacao(Personagens oponente) {
-        boolean sucesso = new Random().nextBoolean();
-        if (sucesso) {
-            oponente.forca -= 5;
-            return "Rafe intimida o oponente, reduzindo sua força temporariamente!";
-        } else {
-            return "Rafe tentou intimidar, mas o oponente resistiu.";
-        }
+        return "Rafe faz um ataque agressivo, causando " + dano + " de dano!";
     }
 
     public String recuperar() {
-        int recuperacao = new Random().nextInt(11) + 10; // Random entre 10 e 20
-        this.vida += recuperacao;
-        return "Rafe recua e recupera " + recuperacao + " pontos de vida!";
+        Dados dados = new Dados();
+        int cura = dados.rolarDados(new Scanner(System.in), 1, 6) + 7; // Random entre 7 e 13
+        this.vida += cura;
+        return "Rafe recupera parte de sua vida, curando " + cura + " pontos!";
+    }
+
+    public String intimidacao(Personagens oponente) {
+        Dados dados = new Dados();
+        int sucesso = dados.rolarDados(new Scanner(System.in), 1, 6) + 6; // Random entre 6 e 12
+        return "Rafe intimida " + oponente.nome + ", diminuindo sua força em " + sucesso + " pontos!";
     }
 }
+
