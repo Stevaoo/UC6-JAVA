@@ -1,29 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+package Outer_Banks;
+import java.util.Scanner;
+/**
+ *
+ * @author STEVAOSEVERORODRIGUE
  */
-package com.mycompany.outer_banks;
-
-import java.util.Random;
-
-class JohnB extends Personagens {
+public class JohnB extends Personagens {
     public JohnB() {
-        super("John B", 90, 15, 15, 15);
+        super("John B", 120, 18, 15, 12);
     }
 
     public String ataqueComArco(Personagens oponente) {
-        int dano = this.forca + new Random().nextInt(11) + 10; // Random entre 10 e 20
+        Dados dados = new Dados();
+        int dano = this.forca + dados.rolarDados(new Scanner(System.in), 1, 10) + 8; // Random entre 8 e 18
         oponente.vida -= dano;
-        return "John B ataca com seu arco improvisado, causando " + dano + " de dano!";
-    }
-
-    public String liderar() {
-        int motivacao = new Random().nextInt(11) + 5; // Random entre 5 e 15
-        return "John B usa sua liderança para aumentar a moral dos aliados em " + motivacao + " pontos!";
+        return "John B atira uma flecha, causando " + dano + " de dano!";
     }
 
     public String sobreviverAmbiente() {
-        int vantagem = new Random().nextInt(6) + 5; // Random entre 5 e 10
-        return "John B usa sua experiência de sobrevivência, ganhando uma vantagem de " + vantagem + " no combate!";
+        Dados dados = new Dados();
+        int cura = dados.rolarDados(new Scanner(System.in), 1, 6) + 5; // Random entre 5 e 10
+        this.vida += cura;
+        return "John B usa suas habilidades de sobrevivência, curando " + cura + " de vida!";
+    }
+
+    public String liderar() {
+        Dados dados = new Dados();
+        int apoio = dados.rolarDados(new Scanner(System.in), 1, 6) + 8; // Random entre 8 e 14
+        return "John B lidera a equipe, dando um bônus de " + apoio + " no próximo ataque!";
     }
 }
+
