@@ -1,28 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package HistoriaJogo;
 
 import java.util.Scanner;
 
-/**
- *
- * @author MATHEUSBRAGAMATTOS
- */
 public class Arqueiro implements Personagem {
-    private String nome;
-    private int forca;
-    private int vida;
-    private int mana;
-    private String arma;
+   // Atributos principais do personagem
+    private String nome; // Nome do personagem
+    private int forca;   // Atributo que influencia o dano causado
+    private int vida;    // Representa os pontos de vida
+    private int mana;    // Atributo utilizado para habilidades especiais
+    private String arma; // Tipo de arma equipada
 
     public Arqueiro(String nome) {
         this.nome = nome;
         this.arma = "Nenhuma";
     }
-
-    @Override
+ /**
+     * Sorteia um valor para o atributo "forca" entre 7 e 12.
+     * Solicita ao usuário que pressione ENTER para realizar o sorteio.
+     */
+  @Override
     public void sortearForca() {
         System.out.println("\nAperte ENTER para sortear a Força...");
         Scanner scanner = new Scanner(System.in);
@@ -49,6 +46,8 @@ public class Arqueiro implements Personagem {
         System.out.println("Mana sorteada: " + this.mana);
     }
 
+
+    //Mostra os atributos atuais do personagem.
     @Override
     public void mostrarAtributos() {
         System.out.println("Força: " + this.forca);
@@ -57,11 +56,12 @@ public class Arqueiro implements Personagem {
         System.out.println("Arma equipada: " + this.arma);
     }
 
+    //Retorna o valor da Força
     @Override
     public int getForca() {
         return this.forca;
     }
-
+//Retorna o valor da Vida
     @Override
     public int getVida() {
         return this.vida;
@@ -71,12 +71,12 @@ public class Arqueiro implements Personagem {
     public int getMana() {
         return this.mana;
     }
-
+// Reduz o dano do personagem
     @Override
     public void receberDano(int dano) {
         this.vida -= dano;
     }
-
+// O personagem equipa uma arma, no caso o arco que amumenta 6 de força 
     @Override
     public void usarArma(String tipoArma) {
         if (tipoArma.equals("Arco")) {
@@ -86,14 +86,15 @@ public class Arqueiro implements Personagem {
         }
     }
 
+    // Opção de poção para o personagem recuperar a vida.
     @Override
     public void usarPoção(String tipoPoção) {
         if (tipoPoção.equals("Poção de Vida")) {
             this.vida += 10;
             System.out.println("Você usou uma Poção de Vida! Vida aumentada em 10.");
         } else if (tipoPoção.equals("Poção de Força")) {
-            this.forca += 3;
-            System.out.println("Você usou uma Poção de Força! Força aumentada em 3.");
+            this.forca += 10;
+            System.out.println("Você usou uma Poção de Força! Força aumentada em 10.");
         }
     }
 }
