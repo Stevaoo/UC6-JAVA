@@ -2,12 +2,6 @@ package HistoriaJogo;
 import HistoriaJogo.Personagem;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-// Guerreiro.java
-// Guerreiro.java
 public class Guerreiro implements Personagem {
     private String nome;
     private int forca;
@@ -90,9 +84,10 @@ public class Guerreiro implements Personagem {
             this.vida += 10;
             System.out.println("Você usou uma Poção de Vida! Vida aumentada em 10.");
         } else if (tipoPoção.equals("Poção de Força")) {
-            this.forca += 3;
-            System.out.println("Você usou uma Poção de Força! Força aumentada em 3.");
+            this.forca += 10;
+            System.out.println("Você usou uma Poção de Força! Força aumentada em 10.");
         }
     }
 }
+
 
