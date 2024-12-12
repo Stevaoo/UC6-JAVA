@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package HistoriaJogo;
 
-/**
- *
- * @author MATHEUSBRAGAMATTOS
- */
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,7 +21,7 @@ public class JogoAventura {
         System.out.println("3 - Arqueiro");
 
         int classeEscolhida = scanner.nextInt();
-        scanner.nextLine();  // Limpar o buffer de entrada
+        scanner.nextLine();  
 
         Personagem personagem = null;
 
@@ -65,8 +57,7 @@ public class JogoAventura {
             System.out.println("4 - Sair do jogo");
 
             int escolha = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer de entrada
-
+            scanner.nextLine(); 
             switch (escolha) {
                 case 1:
                     irParaVila(personagem, scanner);
@@ -96,7 +87,7 @@ public class JogoAventura {
         System.out.println("3 - Voltar");
 
         int escolhaVila = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine(); 
 
         switch (escolhaVila) {
             case 1:
@@ -120,7 +111,7 @@ public class JogoAventura {
         System.out.println("3 - Cajado (para Mago)");
 
         int escolhaArma = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine(); 
 
         if (escolhaArma == 1 && !(personagem instanceof Guerreiro)) {
             System.out.println("Você não pode comprar a Espada. Apenas Guerreiros podem equipá-la.");
@@ -150,7 +141,7 @@ public class JogoAventura {
 
         Scanner scanner = new Scanner(System.in);
         int escolha = scanner.nextInt();
-        scanner.nextLine(); // Consumir a quebra de linha
+        scanner.nextLine(); 
 
         switch (escolha) {
             case 1:
@@ -170,8 +161,7 @@ public class JogoAventura {
         System.out.println("2 - Não");
 
         int escolha = scanner.nextInt();
-        scanner.nextLine(); // Consumir a quebra de linha
-
+        scanner.nextLine(); 
         if (escolha == 1) {
             Random rand = new Random();
             int vidaMonstro = 55;  // Vida do monstro fixada em 55
@@ -183,7 +173,7 @@ public class JogoAventura {
                 System.out.println("2 - Fugir");
 
                 int acaoBatalha = scanner.nextInt();
-                scanner.nextLine(); // Consumir a quebra de linha
+                scanner.nextLine(); 
 
                 switch (acaoBatalha) {
                     case 1:
