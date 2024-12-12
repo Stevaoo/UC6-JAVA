@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package HistoriaJogo;
 
 import java.util.Scanner;
 
-/**
- *
- * @author MATHEUSBRAGAMATTOS
- */
 public class Mago implements Personagem {
     private String nome;
     private int forca;
@@ -92,9 +84,8 @@ public class Mago implements Personagem {
             this.vida += 10;
             System.out.println("Você usou uma Poção de Vida! Vida aumentada em 10.");
         } else if (tipoPoção.equals("Poção de Força")) {
-            this.forca += 3;
-            System.out.println("Você usou uma Poção de Força! Força aumentada em 3.");
+            this.forca += 10;
+            System.out.println("Você usou uma Poção de Força! Força aumentada em 10.");
         }
     }
 }
-
